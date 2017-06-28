@@ -48,6 +48,7 @@ int main()
   static_assert(std::is_same<list8_t, list1_t>::value, "no");
   static_assert(list9_t::size == 3, "no");
   static_assert(list10_t::size == 1, "no");
+  static_assert(list10_t::pop_back::size == 0, "no");
   static_assert(std::is_same<list10_t, type_list_t<double>>::value, "no");
   static_assert(std::is_same<list11_t, type_list_t<>>::value, "no");
   static_assert(std::is_same<list12_t, list9_t>::value, "no");
