@@ -107,9 +107,9 @@ struct type_list_t
   template<size_t I> using get = typename type_list_get_t<type_list_t<args_t...>>::template get<I>::type;
   using front = get<0>;
   using back = get<size - 1>;
-  template<class T> using push_back = typename type_list_cat_t<type_list_t<args_t...>, type_list_t<T>>::type;
+  template<class T> using push_back = typename type_list_t<args_t..., T>;
   using pop_back = typename type_list_slice_t<type_list_t<args_t...>, 0, size - 1>::type;
-  template<class T> using push_front = typename type_list_cat_t<type_list_t<T>, type_list_t<args_t...>>::type;
+  template<class T> using push_front = typename type_list_t<T, args_t...>;
   using pop_front = typename type_list_slice_t<type_list_t<args_t...>, 1, size - 1>::type;
   template<class other_t> using cat = typename type_list_cat_t<type_list_t<args_t...>, other_t>::type;
   template<size_t B, size_t S> using slice = typename type_list_slice_t<type_list_t<args_t...>, B, S>::type;
